@@ -44,7 +44,7 @@ def single_students() -> None:
 
 
 def get_congrats() -> list:
-    with open("C:/Users/Anna/Downloads/teacher_app/congrats.txt", "r", encoding="utf-8") as f:
+    with open("congrats.txt", "r", encoding="utf-8") as f:
         return [line.strip() for line in f]
 
 # виводить одну похвалу
@@ -62,7 +62,7 @@ def create_congrats() -> None:
 
 
 def get_students() -> list:
-    with open("C:/Users/Anna/Downloads/teacher_app/children.txt", "r", encoding="utf-8") as f:
+    with open("children.txt", "r", encoding="utf-8") as f:
         return [line.strip() for line in f if line.strip()]
 
 # розподіляє команди зі списку
@@ -125,7 +125,7 @@ def new_note() -> dict:
 
 
 def save_notes(notes):
-    with open("C:/Users/Anna/Downloads/teacher_helper/admire.txt", "a", encoding="utf-8") as f:
+    with open("admire.txt", "a", encoding="utf-8") as f:
         for name, note in notes.items():
             f.write(f"{name}: {note}\n")
 
