@@ -2,6 +2,7 @@ import random
 import colorama
 from colorama import Fore, Back
 colorama.init(autoreset=True)
+from math_attention import math_attention
 
 # головна функція
 
@@ -23,11 +24,29 @@ def operations():
             single_students()
         elif operation == 4:
             new_note()
-        elif operation == 6:
-            print("Завершення роботи...")
-            break
-        else:
-            print(f"{Fore.RED}🆘 Недопустимий тип даних!")
+        elif operation == 7:
+            while True:
+                try:    
+                    choice2 = int(input(
+                    f"{Fore.WHITE}{Back.WHITE}\n1 - Додавання\n2 - Віднімання\n3 - Множення\n4 - Ділення\n5 - Повернутись\nВаш вибір: "))
+                except ValueError:
+                    print(f"{Fore.RED}Введіть число: ")
+                    continue
+
+                if choice2 == 1:
+                    create_teams()
+                elif choice2 == 2:
+                    math_attention()
+                elif choice2 == 3:
+                    single_students()
+                elif choice2 == 4:
+                    new_note()
+        
+                elif operation == 5:
+                    print("Завершення роботи...")
+                    break
+                else:
+                    print(f"{Fore.RED}🆘 Недопустимий тип даних!")
 
 # дістає одного студента
 
