@@ -1,1 +1,1 @@
-# teacher_helper
+# teacher_helper Код, який робить добро вчителям
