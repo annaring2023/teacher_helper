@@ -18,3 +18,5 @@ while True:
             answer = input("твоя відповідь: ")
             if answer == correct:
                 print("молодець")
+            else:
+                print("on yaaak давай щее раз")
