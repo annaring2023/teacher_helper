@@ -23,8 +23,6 @@ def operations():
             single_students()
         elif operation == 4:
             new_note()
-        elif operation == 5:
-            random_questions()
         elif operation == 6:
             print("Завершення роботи...")
             break
@@ -46,7 +44,7 @@ def single_students() -> None:
 
 
 def get_congrats() -> list:
-    with open("congrats.txt", "r", encoding="utf-8") as f:
+    with open("C:/Users/Anna/Downloads/teacher_app/congrats.txt", "r", encoding="utf-8") as f:
         return [line.strip() for line in f]
 
 # виводить одну похвалу
@@ -64,7 +62,7 @@ def create_congrats() -> None:
 
 
 def get_students() -> list:
-    with open("children.txt", "r", encoding="utf-8") as f:
+    with open("C:/Users/Anna/Downloads/teacher_app/children.txt", "r", encoding="utf-8") as f:
         return [line.strip() for line in f if line.strip()]
 
 # розподіляє команди зі списку
@@ -111,12 +109,8 @@ def new_note() -> dict:
         choice = int(input("Якому номеру учня ви хочете зробити замітку?"))
     except ValueError:
         print(f"{Fore.RED}🆘 Недопустимий тип даних!")
-        return
-
-    if choice > len(stud_list) or choice <= 0:
-        print(f"{Fore.RED}🆘 Недопустиме число!")
-        return
     student = stud_list[choice - 1]
+
     note = input(f"Введіть примітку для {student}: ")
     notes[student] = note
     save_notes(notes)
@@ -127,58 +121,12 @@ def new_note() -> dict:
 
 
 def save_notes(notes):
-    with open("admire.txt", "a", encoding="utf-8") as f:
+    with open("C:/Users/Anna/Downloads/teacher_helper/admire.txt", "a", encoding="utf-8") as f:
         for name, note in notes.items():
             f.write(f"{name}: {note}\n")
 
 
 # запуск головної функції
-
-
-with open("easy.txt", "r", encoding="utf-8") as file_easy:
-    easy_questions = [q.strip()
-                      for q in file_easy.read().split('\n\n') if q.strip()]
-
-with open("medium.txt", "r", encoding="utf-8") as file_med:
-    medium_questions = [q.strip()
-                        for q in file_med.read().split('\n\n') if q.strip()]
-
-with open("hard.txt", "r", encoding="utf-8") as file_hard:
-    hard_questions = [q.strip()
-                      for q in file_hard.read().split('\n\n') if q.strip()]
-
-
-def random_questions():
-
-    easy_num = int(input("Введіть к-ть запитань легкого рівня: "))
-    medium_num = int(input("Введіть к-ть запитань середнього рівня: "))
-    hard_num = int(input("Введіть к-ть запитань складного рівня: "))
-
-    if easy_num <= len(easy_questions):
-        easy_q = random.sample(easy_questions, easy_num)
-    else:
-        print("Кількість більша ніж запитань")
-
-    if medium_num <= len(medium_questions):
-        medium_q = random.sample(medium_questions, medium_num)
-    else:
-        print("Кількість більша ніж запитань")
-
-    if hard_num <= len(hard_questions):
-        hard_q = random.sample(hard_questions, hard_num)
-    else:
-        print("Кількість більша ніж запитань")
-
-    with open("test.txt", "a", encoding="utf-8") as f:
-        f.write(f"Легка легкість:\n")
-        for question in easy_q:
-            f.write(f"{question}\n")
-        f.write(f"\nСередня середність:\n")
-        for question in medium_q:
-            f.write(f"{question}\n")
-        f.write(f"\nВажка важкість:\n")
-        for question in hard_q:
-            f.write(f"{question}\n")
 
 
 if __name__ == "__main__":
