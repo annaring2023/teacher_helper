@@ -1,5 +1,5 @@
+from pdf import create_pdf
 import random
-from ok.py import create_pdf
 def math_attention():
     i = 0
     how_much = int(input("кількість прикладів: "))
