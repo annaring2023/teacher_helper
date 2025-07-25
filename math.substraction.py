@@ -1,5 +1,4 @@
 import random
-print("привіт") 
 while True:
     number1 = random.randint(1, 100)
     number2 = random.randint(1, 100)
@@ -12,7 +11,7 @@ while True:
        break
     answer = int(answer)
     if answer  == correct:
-        print("молодець")
+        print("молодець!")
     else:
         print("давай ще раз")
         for i in range (2):
